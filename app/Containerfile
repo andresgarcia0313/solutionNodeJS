@@ -1,0 +1,6 @@
+# Usa una imagen Alpine como base
+FROM node:alpine
+WORKDIR /software
+COPY . .
+EXPOSE 80
+CMD ["sh", "-c", "tail -f /dev/null"]

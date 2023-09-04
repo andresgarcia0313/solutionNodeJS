@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Containerfile
+    ports:
+      - "${PUERTO}:80"
+    container_name: app
+    environment:
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+      - ./app/app:/app
+    command: ["sh", "-c", "tail -f /dev/null"]
+    restart: unless-stopped
+    networks:
+      - net
+networks:
+  net:
